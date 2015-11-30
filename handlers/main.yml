@@ -1,8 +1,14 @@
 ---
 - name: Restart Hadoop HDFS NameNode
-  service: name=hadoop-hdfs-namenode state=restarted
+  service:
+    name: hadoop-hdfs-namenode
+    state: restarted
+    enabled: yes
   when: hdfs_namenode
 
 - name: Restart Hadoop HDFS DataNode
-  service: name=hadoop-hdfs-datanode state=restarted
+  service:
+    name: hadoop-hdfs-datanode
+    state: restarted
+    enabled: yes
   when: not hdfs_namenode
