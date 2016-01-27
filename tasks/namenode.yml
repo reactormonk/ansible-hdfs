@@ -21,7 +21,7 @@
     - /media/persistent0
 
 - name: Format HDFS NameNode data directories
-  sudo_user: hdfs
+  become_user: hdfs
   command: "hdfs namenode -format"
   when: created_hdfs_namenode_data_dir | changed
   with_items:
